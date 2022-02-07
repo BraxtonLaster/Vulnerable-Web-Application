@@ -12,7 +12,18 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
-
+- task: Application security testing@2022
+  inputs:
+    projectName: 'Service Test Project'
+    enableProxy: false
+    enableSastScan: true
+    CheckmarxService: 'kar'
+    preset: 'Empty preset'
+    customPreset: 'KAR Baseline Standard'
+    fullTeamName: 'CxServer'
+    enableDependencyScan: true
+    dependencyServerURL: 'kar SCA'
+    scaTeam: 'CxServer'
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
